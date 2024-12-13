@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "position": "Manager",
+      "department": "Sales",
+      "email": "johndoe@example.com",
+      "phone": "+1234567890"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "position": "Assistant Manager",
+      "department": "HR",
+      "email": "janesmith@example.com",
+      "phone": "+1234567891"
+    },
+    {
+      "id": 3,
+      "name": "Samuel Jackson",
+      "position": "Sales Associate",
+      "department": "Sales",
+      "email": "samueljackson@example.com",
+      "phone": "+1234567892"
+    },
+    {
+      "id": 4,
+      "name": "Emma Brown",
+      "position": "Tech Support",
+      "department": "IT",
+      "email": "emmabrown@example.com",
+      "phone": "+1234567893"
+    },
+    {
+      "id": 5,
+      "name": "Michael White",
+      "position": "Cashier",
+      "department": "Finance",
+      "email": "michaelwhite@example.com",
+      "phone": "+1234567894"
+    }
+  ]
+  
