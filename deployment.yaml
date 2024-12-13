@@ -1,0 +1,64 @@
+# Deployment for Staff Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staff-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: staff-service
+  template:
+    metadata:
+      labels:
+        app: staff-service
+    spec:
+      containers:
+        - name: staff-service
+          image: viphan123/bestbuy-staff-service:v1  # Your staff service image
+          ports:
+            - containerPort: 5000  # Staff service port
+          env:  # Environment variables (if any)
+            - name: STAFF_SERVICE_API_URL
+              value: "http://staff-service:5000/"
+          resources:  # Resource requests and limits
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          startupProbe:  # Initial health check
+            httpGet:
+              path: /health
+              port: 5000
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:  # Ready status probe
+            httpGet:
+              path: /health
+              port: 5000
+            failureThreshold: 3
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          livenessProbe:  # Ongoing health check
+            httpGet:
+              path: /health
+              port: 5000
+            failureThreshold: 5
+            initialDelaySeconds: 3
+            periodSeconds: 3
+---
+# Service for Staff Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: staff-service
+spec:
+  ports:
+    - port: 80  # Service port exposed outside the cluster
+      targetPort: 5000  # Target container port
+  selector:
+    app: staff-service
+  type: LoadBalancer  # Expose service externally via load balancer
