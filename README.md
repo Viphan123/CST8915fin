@@ -5,7 +5,7 @@ This microservice manages staff information for Best Buy's internal system. It p
 ## Application
 The initial application is developed using Python flask in the app.py file, using a sample json database staff.json. 
 
-## API Endpoints
+## API Endpoints: http://127.0.0.1:5000/staff
 - **POST /staff**: Create a new staff member.
 - **GET /staff/{id}**: Retrieve staff information by ID.
 - **PUT /staff/{id}**: Update staff information by ID.
